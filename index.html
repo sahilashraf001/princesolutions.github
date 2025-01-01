@@ -1,1020 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Solutions - IT & Security Solutions</title>
-     <style>
-        /* General Styling */
+    <title>Computer and IT Solutions</title>
+    <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            background-color: #e5e5e5;
         }
-        /* Header */
+
         header {
-            background: linear-gradient(135deg, #000000, #808080); /* Gradient Background */
-            color: #fff;
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
+            background-color: #0044cc;
+            color: white;
+            padding: 40px;
+            text-align: center;
         }
 
-        /* Logo Section */
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        header h1 {
+            margin: 0;
+            font-size: 3em;
         }
 
-        .logo img {
-            width: 60px; /* Adjust logo size */
-            height: auto;
-            margin-right: 10px; /* Space between logo and company name */
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: rotate(15deg) scale(1.1); /* 3D rotation effect on hover */
-        }
-
-        .logo div {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
-        }
-
-        /* Navigation Styling */
         nav {
-            text-align: right;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
         }
 
         nav a {
-            color: #fff;
+            color: white;
+            padding: 15px 30px;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.1rem;
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #ff9f00; /* Golden underline */
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-in-out;
+            text-align: center;
+            font-size: 1.1em;
         }
 
         nav a:hover {
-            color: #ff9f00; /* Golden text color */
-            transform: translateY(-2px); /* Lift effect */
+            background-color: #555;
         }
 
-        nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Mobile-First Media Queries */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-            }
-            .logo div {
-                font-size: 1.3rem;
-            }
-            nav {
-                text-align: left;
-                width: 100%;
-            }
-            nav a {
-                margin: 10px 0;
-                display: block;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 15px 20px;
-            }
-            .logo div {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('path/to/your/bg.png') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            color: #000000;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #000000;
-            margin: 10px 0;
-        }
-        .btn {
-            background: #000000;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            text-transform: uppercase;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-           /* Sections */
-        section {
-            padding: 50px 20px;
-        }
-        .services, .about, .solutions, .contact {
-            margin: 30px 0;
-        }
-        .services h2, .about h2, .solutions h2, .contact h2 {
-            color: #003366;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        /* Card Layout for Services Section */
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
-        .service-card h3 {
-            margin-top: 15px;
-            font-size: 1.5rem;
-        }
-        .service-card p {
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-
-        /* Contact Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 600px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-        }
-        form input, form textarea {
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        form input:focus, form textarea:focus {
-            border-color: #ff6347;
-            outline: none;
-        }
-        form button {
-            background: #28a745;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        form button:hover {
-            background: #218838;
+            padding: 40px;
         }
 
-        /* Footer */
-        footer {
-            background: #003366;
-            color: #fff;
+        .section-title {
+            font-size: 2.5em;
+            color: #0044cc;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #ff6347;
-            text-decoration: none;
-        }
-
-        /* Media Queries for Mobile Devices */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .services-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 480px) {
-            header {
-                padding: 15px 20px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .services-list {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-       </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <!-- Company Logo Image -->
-            <img src="https://github.com/user-attachments/assets/909c75cd-2514-403a-8870-fb8a21468f3d">
-          <div>Prince Solutions</div>
-        </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#contact">Contact Us</a>
-
-        </nav>
-    </header>
-                <!-- Hero Section -->
-<section class="hero" id="home">
-    <!-- Background Image -->
-    <div class="hero-background">
-        <img src="C:\Users\sahil\OneDrive\Documents\GitHub\princesolutions.github\logo.png">
-    </div>
-
-    <!-- Content Container -->
-    <div class="hero-content">
-        <h1 class="hero-title"><font color="white">Empowering Businesses</font></h1>
-        <p class="hero-subtitle"><font color="white">Seamlessly integrate IT innovation with world-class security.</font></p>
-        <a href="#services" class="btn hero-btn">Explore Our Services</a>
-    </div>
-</section>
-
-<!-- Styles -->
-<style>
-    /* Hero Section Styles */
-    .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        text-align: center;
-        color: white;
-    }
-
-    /* Background Image */
-    .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
-
-    .hero-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(40%) blur(3px);
-        transition: filter 0.2s ease;
-    }
-
-    .hero-img:hover {
-        filter: brightness(60%) blur(2px);
-    }
-
-    /* Content Styling */
-    .hero-content {
-        position: relative;
-        z-index: 1;
-        padding: 30px;
-        max-width: 800px;
-        background: rgba(0, 0, 0, 0.5); /* Dark background */
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        animation: fadeInUp 1s ease-out forwards;
-    }
-
-    .hero-title {
-        font-size: 4.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        letter-spacing: 3px;
-    }
-
-    .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-        line-height: 1.8;
-        letter-spacing: 1px;
-    }
-
-    /* Button Styling */
-    .btn.hero-btn {
-        background-color: #f8a928;
-        color: white;
-        font-size: 1.3rem;
-        padding: 18px 40px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
-    }
-
-    .btn.hero-btn:hover {
-        background-color: #d77a16;
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
-    }
-
-    /* Fade-in and Slide-up Animation */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Mobile responsiveness */
-    @media screen and (max-width: 768px) {
-        .hero-title {
-            font-size: 3.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-
-        .btn.hero-btn {
-            font-size: 1.1rem;
-            padding: 15px 30px;
-        }
-    }
-</style>
-
-
-    
-<!-- About Us Section -->
-<section class="about" id="about">
-    <div class="about-container">
-        <div class="about-image">
-            <img src="D:\folder\Website data\Prince Solutions\bg.jpeg" />
-        </div>
-        <div class="about-text">
-            <h2>About Us</h2>
-            <p>At Prince Solutions, we are dedicated to providing cutting-edge CCTV camera solutions to ensure the safety and security of your home, business, and property. With years of expertise in the security industry, we specialize in offering high-quality surveillance systems tailored to meet the unique needs of our clients. Whether it's for residential, commercial, or industrial purposes, we provide reliable and easy-to-use camera systems designed to monitor, protect, and give you peace of mind. Our products include state-of-the-art cameras, real-time monitoring, and customized security solutions, all backed by exceptional customer service. At Prince Solutions, your safety is our priority, and we work tirelessly to deliver the best in security technology.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Styling for About Us Section -->
-<style>
-    /* About Us Section Styling */
-    .about {
-        background: #f4f4f4; /* Light grey background */
-        padding: 80px 20px;
-        text-align: center;
-        color: #333;
-    }
-
-    /* About Container for Image and Text */
-    .about-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        padding: 0 20px;
-    }
-
-    /* About Image Styling */
-    .about-image {
-        flex: 1;
-        max-width: 500px;
-        margin-right: 30px;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .about-image img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    /* Hover Effect for About Image */
-    .about-image:hover {
-        transform: scale(1.05); /* Zoom effect */
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    /* About Text Styling */
-    .about-text {
-        flex: 1;
-        max-width: 600px;
-        padding: 30px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        line-height: 1.6;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .about-text h2 {
-        font-size: 2.4rem;
-        color: #0073e6; /* Blue color */
-        margin-bottom: 20px;
-    }
-
-    .about-text p {
-        font-size: 1.1rem;
-        color: #555;
-    }
-
-    /* Hover Effect for About Text */
-    .about-text:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Responsive Design for About Us Section */
-    @media (max-width: 768px) {
-        .about-container {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .about-image {
-            margin-right: 0;
             margin-bottom: 30px;
         }
 
-        .about-text {
-            max-width: 100%;
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .about-text h2 {
-            font-size: 2rem;
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .about-text p {
-            font-size: 1rem;
-        }
-    }
-</style>
-<section class="services" id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-list">
-        <div class="service-card">
-            <div class="icon-container">
-                <img src="D:\folder\Website data\Prince Solutions\it.jpeg" alt="IT Solutions Icon" class="service-icon">
-            </div>
-            <h3><a href="C:\Users\sahil\OneDrive\Documents\GitHub\princesolutions.github\it solutions link.html" class="button">IT Solutions</a></h3>
-<p>Custom software development, IT consulting.</p>
-<style>
-.button {
-    display: inline;
-    background-color: #FFFFFF;
-    color: Black;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
-}
-.button:hover {
-    background-color: #45a049;
-}
-</style>
-
-</style>
-
-        </div>
-        <div class="service-card">
-            <div class="icon-container">
-                <img src="path_to_cybersecurity_icon.svg" alt="Cybersecurity Icon" class="service-icon">
-            </div>
-            <h3>Cybersecurity</h3>
-            <p>Threat detection, compliance audits.</p>
-        </div>
-        <div class="service-card">
-            <div class="icon-container">
-                <img src="path_to_networking_icon.svg" alt="Networking & Infrastructure Icon" class="service-icon">
-            </div>
-            <h3>Networking & Infrastructure</h3>
-            <p>Cloud solutions, infrastructure management.</p>
-        </div>
-    </div>
-</section>
-
-<style>
-    .services {
-        background-color: #f4f6f9;
-        padding: 80px 0;
-        text-align: center;
-        font-family: 'Arial', sans-serif;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 50px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .services-list {
-        display: flex;
-        justify-content: space-around;
-        gap: 40px;
-        flex-wrap: wrap;
-        padding: 0 20px;
-    }
-
-    .service-card {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 40px;
-        width: 300px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: #2c3e50;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .service-card h3 {
-        font-size: 1.8rem;
-        color: #2c3e50;
-        margin-top: 25px;
-        font-weight: 600;
-    }
-
-    .service-card p {
-        font-size: 1rem;
-        color: #7f8c8d;
-        margin-top: 15px;
-        line-height: 1.6;
-    }
-
-    .icon-container {
-        width: 20px;
-        height: 20px;
-        background-color: #2c3e50;
-        border-radius: 0%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    .icon-container:hover {
-        transform: scale(1.1);
-    }
-
-    .service-icon {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-        color: #fff;
-    }
-
-    /* Add a subtle animation to icons */
-    .icon-container {
-        animation: pulse 2s infinite ease-out;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-</style>
-
-
-    <!-- Solutions Section -->
-    <section class="solutions" id="solutions">
-        <h2>Solutions</h2>
-        <p>We serve various industries, including finance, healthcare, retail, and education. Explore our success stories to see our impact.</p>
-    </section>
-
-    <!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="contact-header">
-            <h2>Get in Touch</h2>
-            <p>We would love to hear from you! Reach out to us for inquiries, support, or project discussions.</p>
-        </div>
-
-        <!-- Contact Information Section with Icons -->
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <img src="https://img.icons8.com/ios/50/000000/email.png" alt="Email Icon">
-                </div>
-                <h3>Email Us</h3>
-                <p><a href="mailto:support@princesolutions.in">support@princesolutions.in</a></p>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <img src="https://img.icons8.com/ios/50/000000/phone.png" alt="Phone Icon">
-                </div>
-                <h3>Call Us</h3>
-                <p>
-                    <a href="tel:+919927122440">+91-9927122440</a><br />
-                    <a href="tel:+919917122440">+91-9917122440</a>
-                </p>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <img src="https://img.icons8.com/ios/50/000000/marker.png" alt="Location Icon">
-                </div>
-                <h3>Visit Us</h3>
-                <p>Opp. Govt Hospital, Moh Kavi Nagar, Gajraula(Amroha) 244235</p>
-            </div>
-        </div>
-
-        <!-- Google Map Section -->
-        <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218.44205758793515!2d78.24258437198287!3d28.83668891247085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390b75712f1d15b5%3A0x61dbe2a8ac765515!2sM%2Fs%20Prince%20Solutions!5e0!3m2!1sen!2sin!4v1734622649253!5m2!1sen!2sin" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
-
-<!-- Styling for Contact Section -->
-<style>
-    /* General Contact Section Styling */
-    .contact {
-        background-color: #ffffff;
-        padding: 60px 20px;
-        text-align: center;
-        color: #333;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .contact-header h2 {
-        font-size: 2.5rem;
-        color: #2f4f91;
-        margin-bottom: 20px;
-    }
-
-    .contact-header p {
-        font-size: 1.1rem;
-        color: #666;
-    }
-
-    /* Contact Information Section */
-    .contact-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 40px;
-    }
-
-    .contact-item {
-        background: #f9f9f9;
-        border-radius: 10px;
-        padding: 25px;
-        width: 250px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-item h3 {
-        font-size: 1.4rem;
-        color: #2f4f91;
-        margin-top: 20px;
-    }
-
-    .contact-item p {
-        font-size: 1.1rem;
-        color: #555;
-        line-height: 1.6;
-    }
-
-    .contact-item a {
-        color: #2f4f91;
-        text-decoration: none;
-    }
-
-    .contact-icon img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 20px;
-    }
-
-    /* Hover Effect */
-    .contact-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Map Section */
-    .contact-map iframe {
-        width: 40%;
-        height: 230px;
-        border: 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .contact-info {
-            flex-direction: column;
-            align-items: center;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .contact-item {
-            width: 80%;
+        .service-card h3 {
+            color: #0044cc;
+            font-size: 1.8em;
             margin-bottom: 20px;
         }
 
-        .contact-header h2 {
-            font-size: 2rem;
+        .service-card p {
+            font-size: 1.1em;
+            color: #666;
         }
 
-        .contact-header p {
-            font-size: 1rem;
-        }
-    }
-</style>
-
-<br>
-
-
-        <div class="contact-form">
-    <div class="form-container">
-        <h3 class="form-title">Contact Us</h3>
-        <form action="#" method="POST">
-            <!-- Name Input -->
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your name">
-            </div>
-
-            <!-- Email Input -->
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-
-            <!-- Message Textarea -->
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required placeholder="Tell us how we can help"></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </div>
-</div>
-
-<style>
-    /* General Contact Form Styling */
-    .contact-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120vh;
-        background: linear-gradient(135deg, #3498db, #8e44ad);
-        padding: 30px;
-    }
-
-    .form-container {
-        background-color: #ffffff;
-        padding: 30px 40px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-        animation: fadeIn 0.6s ease-out;
-    }
-
-    .form-title {
-        font-size: 1.8rem;
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
-
-    /* Input Field Styling */
-    .form-group {
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-        color: #7f8c8d;
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        background-color: #f5f5f5;
-    }
-
-    /* Focus Effect */
-    .form-group input:focus,
-    .form-group textarea:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
-        outline: none;
-    }
-
-    .form-group textarea {
-        min-height: 100px;
-        resize: vertical;
-    }
-
-    /* Submit Button Styling */
-    .submit-btn {
-        background-color: #3498db;
-        color: #ffffff;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .submit-btn:hover {
-        background-color: #2980b9;
-    }
-
-    /* Animation */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .form-container {
-            padding: 20px;
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .form-title {
-            font-size: 1.6rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            font-size: 0.9rem;
-            padding: 10px;
-        }
-
-        .submit-btn {
-            font-size: 1rem;
-            padding: 10px 25px;
-        }
-    }
-
-    /* Mobile-First */
-    @media (max-width: 480px) {
-        .form-container {
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
             padding: 15px;
-            max-width: 90%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            background-color: #f9f9f9;
         }
 
-        .form-title {
-            font-size: 1.4rem;
+        .contact-form button {
+            background-color: #0044cc;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
         }
 
-        .form-group label {
-            font-size: 0.9rem;
+        .contact-form button:hover {
+            background-color: #0033aa;
         }
 
-        .form-group input,
-        .form-group textarea {
-            padding: 8px;
-            font-size: 0.9rem;
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
 
-        .submit-btn {
-            font-size: 0.9rem;
-            padding: 8px 20px;
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
         }
-    }
-</style>
+    </style>
+</head>
 
+<body>
 
+    <header>
+        <h1>Computer and IT Solutions</h1>
+        <p>Innovative Technology Solutions for Your Business Success</p>
+    </header>
+
+    
+
+            <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Our Services</h2>
+
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Custom Software Development</h3>
+                    <p>We develop tailored software solutions to fit the unique needs of your business, enhancing workflow and
+                        performance.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Cloud Computing</h3>
+                    <p>Leverage the power of cloud technology for increased scalability, flexibility, and remote collaboration.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your business from cyber threats with our advanced security solutions, including firewalls, data
+                        encryption, and monitoring.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Network Solutions</h3>
+                    <p>We provide robust network infrastructure solutions, including design, setup, and maintenance to ensure smooth
+                        and secure operations.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>IT Consulting</h3>
+                    <p>Our IT consultants offer expert advice to help you optimize your IT systems and achieve your business goals.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Hardware Support</h3>
+                    <p>From repair to upgrades, we provide comprehensive support for all your computer hardware needs.</p>
+                </div>
+            </div>
         </section>
 
-    <!-- Footer -->
+        
     <footer>
-        <p>© 2024 Prince Solutions. All rights reserved.</p>
-        <p><a href="#home">Back to top</a></p>
+        <p>&copy; 2024 Computer and IT Solutions. All rights reserved.</p>
     </footer>
 
 </body>
+
 </html>
