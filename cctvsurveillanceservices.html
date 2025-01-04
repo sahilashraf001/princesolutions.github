@@ -22,17 +22,17 @@
         header {
             background: linear-gradient(135deg, #333, #5e5e5e);
             color: white;
-            padding: 80px 0;
+            padding: 50px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
 
         header p {
-            font-size: 1.3rem;
+            font-size: 1rem;
             margin-bottom: 20px;
         }
 
@@ -40,25 +40,25 @@
         .cta-section {
             background-color: #45a049;
             color: white;
-            padding: 50px 0;
+            padding: 30px 10px;
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .cta-button {
             background-color: #ffffff;
             color: #45a049;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 10px 20px;
+            font-size: 1rem;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
@@ -85,28 +85,29 @@
 
         .popup {
             background-color: #fff;
-            padding: 40px;
-            width: 400px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
         .popup h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
         .popup p {
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .popup .popup-button {
             background-color: #45a049;
             color: white;
             padding: 10px 20px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
@@ -120,7 +121,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             color: #333;
         }
@@ -128,33 +129,31 @@
         /* Main Section */
         .main-section {
             display: flex;
-            justify-content: space-between;
-            margin: 50px 10%;
+            flex-direction: column;
+            margin: 20px 10px;
         }
 
         .main-section .content {
-            flex: 1;
-            padding: 40px;
+            padding: 20px;
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .main-section .content h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .main-section .content p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #555;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
         .main-section .image {
-            flex: 1;
-            margin-left: 20px;
+            margin-top: 20px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -168,27 +167,27 @@
         /* Services Section */
         .services {
             background-color: #333;
-            padding: 50px 0;
+            padding: 30px 10px;
             color: white;
             text-align: center;
         }
 
         .services h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .services .service-cards {
             display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .service-card {
             background-color: #ffffff;
-            padding: 30px;
-            width: 300px;
+            padding: 20px;
+            width: 90%;
+            margin: 0 auto;
             text-align: center;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -200,20 +199,20 @@
         }
 
         .service-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .service-card p {
             color: #666;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .service-card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             color: #333;
         }
 
@@ -222,87 +221,81 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 10px 0;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            font-size: 1rem;
+        /* Video Section */
+        .video-section, .demo-section {
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        .video-section h2, .demo-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .video-container, .demo-container {
+            width: 100%;
+            height: 300px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
         }
 
         /* Interactive Map Section */
         .map-section {
             text-align: center;
-            margin: 50px 0;
+            margin: 20px 10px;
         }
 
         .map-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
         .map-container {
             width: 100%;
-            height: 400px;
-            margin-top: 20px;
+            height: 300px;
+            margin-top: 15px;
             border: 2px solid #ddd;
         }
 
-        /* Video Section */
-        .video-section {
-            margin: 50px 10%;
-            text-align: center;
-        }
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .main-section {
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 50px 10%;
+            }
 
-        .video-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+            .main-section .content {
+                padding: 40px;
+            }
 
-        .video-container {
-            width: 100%;
-            height: 500px;
-            background-color: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
+            .services .service-cards {
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 30px;
+            }
 
-        /* Real-Time Demo Section */
-        .demo-section {
-            margin: 50px 10%;
-            text-align: center;
-        }
+            .service-card {
+                width: 300px;
+            }
 
-        .demo-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+            .video-container, .demo-container {
+                height: 500px;
+            }
 
-        .demo-container {
-            width: 100%;
-            height: 500px;
-            background-color: #000;
-            border-radius: 8px;
-            margin-top: 20px;
-            background-image: url('https://via.placeholder.com/800x500');
-            background-size: cover;
+            .map-container {
+                height: 400px;
+            }
         }
-
     </style>
 </head>
 <body>
-
-         <style>
-    body {
-        -webkit-user-select: none; /* Disable text selection in Webkit browsers (Chrome, Safari, etc.) */
-        -moz-user-select: none;    /* Disable text selection in Firefox */
-        -ms-user-select: none;     /* Disable text selection in Internet Explorer */
-        user-select: none;         /* Standard syntax for modern browsers */
-    }
-</style>
 
     <!-- Header Section -->
     <header>
@@ -343,7 +336,7 @@
     <section class="video-section">
         <h2>Watch Our CCTV Demo</h2>
         <div class="video-container">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=DurzGrdwmBc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DurzGrdwmBc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -352,8 +345,7 @@
         <h2>Our Service Areas</h2>
         <div class="map-container">
             <!-- Google Map Embedded -->
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244695.21209309853!2d77.08691446594426!3d28.593381330553633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce19466e19ae1%3A0x45ceeb565fd5de6c!2sNational%20Capital%20Region!5e0!3m2!1sen!2sin!4v1736014358513!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-         
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244695.21209309853!2d77.08691446594426!3d28.593381330553633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce19466e19ae1%3A0x45ceeb565fd5de6c!2sNational%20Capital%20Region!5e0!3m2!1sen!2sin!4v1736014358513!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -384,9 +376,7 @@
         <h2>See Live Monitoring</h2>
         <div class="demo-container"></div>
     </section>
-<br>
-<br>
-<br>
+
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 CCTV Solutions | All Rights Reserved</p>
