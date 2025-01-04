@@ -525,104 +525,94 @@
 </section>
 
 <style>
-    .services {
-        background-color: #f4f6f9;
-        padding: 80px 0;
-        text-align: center;
-        font-family: 'Arial', sans-serif;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 50px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-    }
-
     .services-list {
         display: flex;
-        justify-content: space-around;
-        gap: 40px;
-        flex-wrap: wrap;
-        padding: 0 20px;
+        justify-content: space-between;
+        gap: 10px; /* Spacing between the cards */
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    }
+
+    .service-link {
+        display: block;
+        text-decoration: none; 
+        width: 23%; /* Makes four cards in a row with smaller gaps */
+        opacity: 0; /* Initially hidden */
+        transform: translateX(-100px); /* Start off-screen to the left */
+        transition: opacity 0.8s, transform 2.2s ease; /* For smooth animation */
     }
 
     .service-card {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 40px;
-        width: 300px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: #2c3e50;
-        position: relative;
-        overflow: hidden;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
     }
 
     .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        background-color: #45a049;
     }
 
-    .service-card h3 {
-        font-size: 1.8rem;
-        color: #2c3e50;
-        margin-top: 25px;
-        font-weight: 600;
-    }
-
-    .service-card p {
-        font-size: 1rem;
-        color: #7f8c8d;
-        margin-top: 15px;
-        line-height: 1.6;
-    }
-
-    .icon-container {
-        width: 20px;
-        height: 20px;
-        background-color: #2c3e50;
-        border-radius: 0%;
+    .service-card .icon-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    .icon-container:hover {
-        transform: scale(1.1);
+        margin-bottom: 10px;
     }
 
     .service-icon {
         width: 80px;
         height: 80px;
-        object-fit: contain;
-        color: #fff;
+        margin-right: 10px;
     }
 
-    /* Add a subtle animation to icons */
-    .icon-container {
-        animation: pulse 2s infinite ease-out;
+    .service-card h3 {
+        font-size: 22px;
+        margin: 10px 0;
     }
 
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
+    .service-card p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1024px) {
+        .service-link {
+            width: 48%; /* Two cards in a row on medium screens */
         }
-        50% {
-            transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+        .service-link {
+            width: 100%; /* Stacks the cards vertically on smaller screens */
         }
-        100% {
-            transform: scale(1);
-        }
+    }
+
+    /* Animation when the card is visible */
+    .service-link.visible {
+        opacity: 1;
+        transform: translateX(0); /* Move to its original position */
     }
 </style>
+
+<script>
+    // Create an intersection observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // If the card is in the viewport, add the 'visible' class to trigger the animation
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+
+    // Select all service link elements to observe
+    const serviceLinks = document.querySelectorAll('.service-link');
+    serviceLinks.forEach(link => observer.observe(link));
+</script>
 
 <!-- Solutions Section -->
     <section class="solutions" id="solutions">
