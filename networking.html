@@ -16,30 +16,32 @@
             font-family: 'Arial', sans-serif;
             background-color: #f4f7fa;
             color: #333;
+            line-height: 1.6;
         }
 
         /* Header Section */
         header {
             background: linear-gradient(45deg, #00bcd4, #009688);
             color: white;
-            padding: 50px 0;
+            padding: 30px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* Main Section */
         .main-section {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            margin: 50px 10%;
+            margin: 20px 5%;
         }
 
         .main-section .content {
@@ -48,18 +50,18 @@
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-section .content h2 {
-            font-size: 2rem;
-            color: #009688;
             margin-bottom: 20px;
         }
 
+        .main-section .content h2 {
+            font-size: 1.8rem;
+            color: #009688;
+            margin-bottom: 15px;
+        }
+
         .main-section .content p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
-            line-height: 1.6;
         }
 
         /* Image Animation */
@@ -72,7 +74,12 @@
             opacity: 0;
             transform: scale(0.9);
             animation: fadeInZoom 1s forwards;
-            animation-delay: 0.5s; /* Delay the animation slightly for a smooth effect */
+            animation-delay: 0.5s;
+        }
+
+        .main-section .image img {
+            width: 100%;
+            height: auto;
         }
 
         /* Animation Keyframes */
@@ -90,27 +97,28 @@
         /* Services Section */
         .services {
             background-color: #009688;
-            padding: 50px 0;
+            padding: 30px 0;
             color: white;
             text-align: center;
         }
 
         .services h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .services .service-cards {
             display: flex;
-            justify-content: space-around;
-            gap: 30px;
             flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
         }
 
         .service-card {
             background-color: #ffffff;
             padding: 20px;
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             text-align: center;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -122,20 +130,19 @@
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #009688;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .service-card p {
             color: #555;
             font-size: 1rem;
-            margin-bottom: 20px;
         }
 
         .service-card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
             color: #009688;
         }
 
@@ -144,26 +151,72 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
 
         footer p {
-            font-size: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .main-section {
+                flex-direction: column;
+            }
+
+            .main-section .image {
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+
+            .services h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-card {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .main-section .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .services h2 {
+                font-size: 1.2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-         <style>
-    body {
-        -webkit-user-select: none; /* Disable text selection in Webkit browsers (Chrome, Safari, etc.) */
-        -moz-user-select: none;    /* Disable text selection in Firefox */
-        -ms-user-select: none;     /* Disable text selection in Internet Explorer */
-        user-select: none;         /* Standard syntax for modern browsers */
-    }
-</style>
+    <style>
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
 
     <!-- Header Section -->
     <header>
