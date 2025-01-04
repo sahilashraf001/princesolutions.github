@@ -62,17 +62,29 @@
             line-height: 1.6;
         }
 
+        /* Image Animation */
         .main-section .image {
             flex: 1;
             margin-left: 20px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInZoom 1s forwards;
+            animation-delay: 0.5s; /* Delay the animation slightly for a smooth effect */
         }
 
-        .main-section .image img {
-            width: 100%;
-            height: auto;
+        /* Animation Keyframes */
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Services Section */
@@ -144,6 +156,14 @@
     </style>
 </head>
 <body>
+         <style>
+    body {
+        -webkit-user-select: none; /* Disable text selection in Webkit browsers (Chrome, Safari, etc.) */
+        -moz-user-select: none;    /* Disable text selection in Firefox */
+        -ms-user-select: none;     /* Disable text selection in Internet Explorer */
+        user-select: none;         /* Standard syntax for modern browsers */
+    }
+</style>
 
     <!-- Header Section -->
     <header>
@@ -159,7 +179,7 @@
             <p>From small businesses to large enterprises, we offer end-to-end solutions including network design, security, monitoring, and management to ensure your network is running at its peak performance.</p>
         </div>
         <div class="image">
-            <img src="https://via.placeholder.com/600x400" alt="Networking Image">
+            <img src="https://github.com/user-attachments/assets/30e99aaa-5400-4a55-8fa6-3129981aa555" alt="Networking Image">
         </div>
     </section>
 
@@ -184,14 +204,6 @@
             </div>
         </div>
     </section>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
     <!-- Footer Section -->
     <footer>
