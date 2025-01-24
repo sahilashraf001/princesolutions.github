@@ -1,315 +1,457 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Solutions - IT & Security Solutions</title>
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background-color: #f4f4f4;
+}
 
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            scroll-behavior: smooth;
+/* Header with Gradient Background */
+header {
+    background: linear-gradient(135deg, #000000, #808080); /* Gradient Background */
+    color: #fff;
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Depth shadow */
+    animation: headerAnim 1.5s ease-out; /* Animation for header */
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+    margin-right: 15px;
+    transform-origin: center;
+    transition: all 0.5s ease;
+}
+
+.logo:hover img {
+    transform: rotate(15deg) scale(1.1); /* Rotate and scale the logo on hover */
+}
+
+.logo div {
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    position: relative;
+    animation: logoTextAnim 1.5s ease-in-out forwards;
+}
+
+/* Logo Text Animation */
+@keyframes logoTextAnim {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    gap: 30px;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff9f00; /* Accent color */
+    transition: width 0.3s ease;
+    bottom: -5px;
+    left: 0;
+}
+
+nav a:hover {
+    color: #ff9f00;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Menu (Mobile) */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 200;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: rotate(90deg); /* Animation for hamburger on hover */
+}
+
+/* Navigation Popup (Mobile Menu) */
+.nav-popup {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease-in-out;
+    z-index: 2000; /* Ensure it stays above the hero section */
+}
+
+.nav-popup a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-popup a:hover {
+    color: #ff9f00;
+}
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    z-index: 1; /* Lower z-index than the popup */
+}
+
+/* Hero Section Image and Content Styles */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%) blur(3px);
+    transition: filter 0.2s ease;
+}
+
+.hero-img:hover {
+    filter: brightness(60%) blur(2px);
+}
+
+/* Content Styling */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    animation: zoomIn 1.5s ease-out forwards; /* Zoom-in animation for content */
+}
+
+/* Button Styling */
+.btn.hero-btn {
+    background-color: #f8a928;
+    color: white;
+    font-size: 1.3rem;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
+    opacity: 0; /* Start invisible */
+    transform: scale(0); /* Start small from the center */
+    animation: zoomInButton 1.6s ease-out forwards; /* Animation for button */
+    animation-delay: 0.6s; /* Delay for button */
+}
+
+.btn.hero-btn:hover {
+    background-color: #d77a16;
+    transform: scale(1.1); /* Scale effect on hover */
+    box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
+}
+
+@keyframes zoomInButton {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Header Animation */
+@keyframes headerAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Hide nav links on small screens */
+    }
+
+    .menu-btn {
+        display: block; /* Show hamburger menu button */
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .btn.hero-btn {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+}
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <!-- Background Image -->
+    <div class="hero-background">
+        <img src="https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512" class="hero-img">
+    </div>
+
+    <!-- Content Container -->
+    <div class="hero-content">
+        <h1 class="hero-title"><font color="white">Empowering Businesses</font></h1>
+        <p class="hero-subtitle"><font color="white">Seamlessly integrate IT innovation with world-class security.</font></p>
+        <a href="#services" class="btn hero-btn">Explore Our Services</a>
+    </div>
+</section>
+
+<!-- Styles -->
+<style>
+    /* Hero Section Styles */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        text-align: center;
+        color: white;
+    }
+
+    /* Background Image */
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        z-index: -1;
+        overflow: hidden;
+        animation: zoomInBackground 2s ease-out forwards; /* Animation for background */
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(40%) blur(3px);
+        transition: filter 0.2s ease;
+    }
+
+    .hero-img:hover {
+        filter: brightness(60%) blur(2px);
+    }
+
+    /* Content Styling */
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 30px;
+        max-width: 800px;
+        background: rgba(0, 0, 0, 0.5); /* Dark background */
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        animation: zoomIn 1.5s ease-out forwards; /* Zoom-in animation for content */
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 3px;
+        opacity: 0; /* Start invisible for animation */
+        transform: translate(-50%, -50%) scale(0); /* Start small and from top-left */
+        animation: zoomInTitle 1.2s ease-out forwards; /* Animation for title */
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        line-height: 1.8;
+        letter-spacing: 1px;
+        opacity: 0; /* Start invisible for animation */
+        transform: translate(50%, 50%) scale(0); /* Start small and from bottom-right */
+        animation: zoomInSubtitle 1.4s ease-out forwards; /* Animation for subtitle */
+        animation-delay: 0.3s; /* Delay to make subtitle appear after the title */
+    }
+
+    /* Button Styling */
+    .btn.hero-btn {
+        background-color: #f8a928;
+        color: white;
+        font-size: 1.3rem;
+        padding: 18px 40px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
+        opacity: 0; /* Start invisible */
+        transform: scale(0); /* Start small from the center */
+        animation: zoomInButton 1.6s ease-out forwards; /* Animation for button */
+        animation-delay: 0.6s; /* Delay for button */
+    }
+
+    .btn.hero-btn:hover {
+        background-color: #d77a16;
+        transform: scale(1.1); /* Scale effect on hover */
+        box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
+    }
+
+    /* Zoom-in Animations */
+    @keyframes zoomInTitle {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
         }
-
-        /* Header with Gradient Background */
-        header {
-            background: linear-gradient(135deg, #000000, #808080); /* Gradient Background */
-            color: #fff;
-            padding: 20px 40px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Depth shadow */
+        to {
+            opacity: 1;
+            transform: translate(0, 0) scale(1); /* End at normal position and scale */
         }
+    }
 
-        /* Logo Section */
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 28px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
+    @keyframes zoomInSubtitle {
+        from {
+            opacity: 0;
+            transform: translate(50%, 50%) scale(0);
         }
-
-        .logo img {
-            width: 70px;
-            height: auto;
-            margin-right: 15px;
+        to {
+            opacity: 1;
+            transform: translate(0, 0) scale(1); /* End at normal position and scale */
         }
+    }
 
-        .logo div {
-            font-size: 1.8rem;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-            color: #fff;
+    @keyframes zoomInButton {
+        from {
+            opacity: 0;
+            transform: scale(0);
         }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            gap: 30px;
+        to {
+            opacity: 1;
+            transform: scale(1); /* End at normal scale */
         }
+    }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 10px;
-            transition: color 0.3s ease;
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.7); /* Start with zoom-out effect */
         }
-
-        nav a:hover {
-            color: #ff9f00;
-            transform: scale(1.1);
+        to {
+            opacity: 1;
+            transform: scale(1); /* End at normal scale */
         }
+    }
 
-        /* Hamburger Menu (Mobile) */
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 100;
+    /* Background Animation */
+    @keyframes zoomInBackground {
+        from {
+            transform: scale(1.2); /* Start zoomed in */
         }
-
-        /* Navigation Popup (Mobile Menu) */
-        .nav-popup {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 220px;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: right 0.3s ease-in-out;
-            border-left: 5px solid #ff9f00;
-            border-radius: 10px 0 0 10px; /* Rounded corners */
-            box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.5);
+        to {
+            transform: scale(1); /* End at normal scale */
         }
+    }
 
-        .nav-popup a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.3rem;
-            margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-popup a:hover {
-            color: #ff9f00;
-            transform: scale(1.1);
-        }
-
-        /* Mobile Hero Section Styling */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            text-align: center;
-            color: white;
-        }
-
-        /* Background Image */
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            z-index: -1;
-            overflow: hidden;
-            animation: zoomInBackground 2s ease-out forwards;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(40%) blur(3px);
-            transition: filter 0.2s ease;
-        }
-
-        .hero-img:hover {
-            filter: brightness(60%) blur(2px);
-        }
-
-        /* Content Styling */
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 30px;
-            max-width: 800px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        }
-
+    /* Mobile responsiveness */
+    @media screen and (max-width: 768px) {
         .hero-title {
-            font-size: 4.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
+            font-size: 3.5rem;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            letter-spacing: 1px;
+            font-size: 1.2rem;
         }
 
         .btn.hero-btn {
-            background-color: #f8a928;
-            color: white;
-            font-size: 1.3rem;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
+            font-size: 1.1rem;
+            padding: 15px 30px;
         }
-
-        .btn.hero-btn:hover {
-            background-color: #d77a16;
-            transform: scale(1.1);
-            box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
-        }
-
-        /* Background Animation */
-        @keyframes zoomInBackground {
-            from {
-                transform: scale(1.2);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
-
-        /* Mobile responsiveness */
-        @media screen and (max-width: 768px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .btn.hero-btn {
-                font-size: 1.1rem;
-                padding: 15px 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-        }
-
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <img src="https://github.com/user-attachments/assets/909c75cd-2514-403a-8870-fb8a21468f3d" alt="Prince Solutions Logo">
-            <div>Prince Solutions</div>
-        </div>
-
-        <!-- Navigation Bar (Desktop) -->
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact Us</a>
-        </nav>
-
-        <!-- Hamburger Menu Button -->
-        <button class="menu-btn" id="menu-btn">&#9776;</button>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <!-- Background Image -->
-        <div class="hero-background">
-            <img src="https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512" class="hero-img">
-        </div>
-
-        <!-- Content Container -->
-        <div class="hero-content">
-            <h1 class="hero-title">Empowering Businesses</h1>
-            <p class="hero-subtitle">Seamlessly integrate IT innovation with world-class security.</p>
-            <a href="#services" class="btn hero-btn">Explore Our Services</a>
-        </div>
-    </section>
-
-    <!-- Mobile Navigation Popup -->
-    <div class="nav-popup" id="nav-popup">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
-    </div>
-
-    <script>
-        // Get elements
-        const menuBtn = document.getElementById('menu-btn');
-        const navPopup = document.getElementById('nav-popup');
-
-        // Toggle nav popup
-        menuBtn.addEventListener('click', () => {
-            if (navPopup.style.right === '0px') {
-                navPopup.style.right = '-100%'; // Hide the popup
-            } else {
-                navPopup.style.right = '0'; // Show the popup
-            }
-        });
-
-        // Close the popup if clicked outside
-        window.addEventListener('click', (event) => {
-            if (!navPopup.contains(event.target) && !menuBtn.contains(event.target)) {
-                navPopup.style.right = '-100%'; // Hide the popup if clicked outside
-            }
-        });
-    </script>
-
-</body>
-</html>
+    }
+</style>
 
 
 
