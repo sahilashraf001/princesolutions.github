@@ -429,140 +429,179 @@
     
 </style>
 
-
+<!-- Service card section Section -->
 <section class="services" id="services">
     <h2 class="section-title">Our Services</h2>
-<style>      
-.services {
-    text-align: center;
-}
 
-.section-title {
-    display: inline-block;
-}
-</style>
-
- 
     <div class="services-list">
+        <!-- Service Card 1 -->
         <a href="contact.html" class="service-link">
             <div class="service-card">
                 <div class="icon-container">
-                    <h3>IT Solutions</h3>
+                    <i class="service-icon fas fa-laptop-code"></i> <!-- IT Solutions Icon -->
                 </div>
+                <h3>IT Solutions</h3>
                 <p>Custom software development, IT consulting.</p>
             </div>
         </a>
 
+        <!-- Service Card 2 -->
         <a href="cctvsurveillanceservices.html" class="service-link">
             <div class="service-card">
-                <div class="icon-container">                    
-                    <h3>CCTV Surveillance Services</h3>
+                <div class="icon-container">
+                    <i class="service-icon fas fa-video"></i> <!-- CCTV Icon -->
                 </div>
-                <p>CCTV Surveillance Services provide advanced security solutions to monitor and protect properties, businesses, and homes. By installing high-quality cameras, motion detectors, and remote monitoring systems, we ensure constant vigilance and real-time surveillance.</p>
+                <h3>CCTV Surveillance Services</h3>
+                <p>Providing advanced security solutions to monitor and protect properties.</p>
             </div>
         </a>
 
+        <!-- Service Card 3 -->
         <a href="networking.html" class="service-link">
             <div class="service-card">
                 <div class="icon-container">
-                    <h3>Networking</h3>
+                    <i class="service-icon fas fa-network-wired"></i> <!-- Networking Icon -->
                 </div>
-                <p>
-Our computer networking solutions are designed to provide reliable, secure, and scalable connectivity for businesses of all sizes. Whether you're looking to optimize your existing network infrastructure or build a new one from the ground up, we offer tailored solutions that meet your specific needs. From local area networks (LAN) to wide area networks (WAN), our team of experts ensures seamless communication, improved data management, and enhanced security across your entire network.</p>
+                <h3>Networking</h3>
+                <p>Reliable, secure, and scalable connectivity for businesses of all sizes.</p>
             </div>
         </a>
 
+        <!-- Service Card 4 -->
         <a href="cloud-solutions-link.html" class="service-link">
             <div class="service-card">
-                <div class="icon-container">                    
-                    <h3>Electrical Solutions</h3>
+                <div class="icon-container">
+                    <i class="service-icon fas fa-bolt"></i> <!-- Electrical Solutions Icon -->
                 </div>
-                <p>We provide comprehensive electrical solutions for both residential and commercial needs. Our expert team specializes in safe installations, repairs, and upgrades to ensure your electrical systems are efficient and reliable. Whether it's lighting design, wiring, or energy-saving solutions, we offer customized services to meet your requirements. Trust us for top-notch service and long-lasting results that prioritize safety and performance.</p>
+                <h3>Electrical Solutions</h3>
+                <p>Comprehensive electrical services for residential and commercial needs.</p>
             </div>
         </a>
     </div>
 </section>
 
+<!-- Styles -->
 <style>
-     
-            
-     
-    .services-list {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px; /* Spacing between the cards */
-        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    /* General styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #2a2a2a; /* Dark background for the body */
+        color: #ddd; /* Light text */
+        margin: 0;
+        padding: 0;
     }
 
+    /* Service section styles */
+    .services {
+        padding: 80px 20px;
+        background-color: #1f1f1f; /* Darker section background */
+    }
+
+    .section-title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #f9a826; /* Golden Accent Color */
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    /* Services List - Grid Layout */
+    .services-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        justify-items: center;
+        padding: 0 10px;
+    }
+
+    /* Service Link styles */
     .service-link {
         display: block;
-        text-decoration: none; 
-        width: 23%; /* Makes four cards in a row with smaller gaps */
-        opacity: 0; /* Initially hidden */
-        transform: translateX(-100px); /* Start off-screen to the left */
-        transition: opacity 0.8s, transform 2.2s ease; /* For smooth animation */
+        text-decoration: none;
+        opacity: 0; /* Initially hidden for animation */
+        transform: translateY(50px); /* Start from bottom */
+        transition: opacity 0.6s ease, transform 0.8s ease; /* Smooth animation */
     }
 
+    /* Service Card Styles */
     .service-card {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #1f1f1f, #333); /* Dark gradient background */
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         text-align: center;
+        width: 100%;
+        max-width: 320px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
     }
 
     .service-card:hover {
-        background-color: #45a049;
+        background: linear-gradient(135deg, #f9a826, #f44336); /* Golden to red on hover */
+        transform: translateY(-10px); /* Lift effect */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .service-card .icon-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 10px;
+    /* Service Icon Styles */
+    .icon-container {
+        margin-bottom: 20px;
     }
 
     .service-icon {
-        width: 80px;
-        height: 80px;
-        margin-right: 10px;
+        font-size: 3rem;
+        color: #f9a826; /* Golden color for icons */
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
     }
 
+    /* Hover Effect for Icons */
+    .service-card:hover .service-icon {
+        color: #fff; /* White icon on hover */
+    }
+
+    /* Service Card Title Styles */
     .service-card h3 {
-        font-size: 22px;
-        margin: 10px 0;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #fff; /* White text for title */
     }
 
+    /* Service Card Description */
     .service-card p {
-        font-size: 14px;
-        color: #555;
+        font-size: 1rem;
+        color: #bbb; /* Lighter text color for description */
+        line-height: 1.6;
     }
 
     /* Responsive design */
     @media (max-width: 1024px) {
-        .service-link {
-            width: 48%; /* Two cards in a row on medium screens */
+        .services-list {
+            grid-template-columns: repeat(2, 1fr); /* Two cards in a row on medium screens */
         }
     }
 
     @media (max-width: 768px) {
-        .service-link {
-            width: 100%; /* Stacks the cards vertically on smaller screens */
+        .services-list {
+            grid-template-columns: 1fr; /* Stack the cards vertically on smaller screens */
         }
     }
 
-    /* Animation when the card is visible */
+    /* Add animation for service link when visible */
     .service-link.visible {
         opacity: 1;
-        transform: translateX(0); /* Move to its original position */
+        transform: translateY(0); /* Move to its original position */
     }
 </style>
 
+<!-- JavaScript to trigger animation when in viewport -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome for Icons -->
+
 <script>
-    // Create an intersection observer
+    // Create an IntersectionObserver to add a visible class when cards come into view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // If the card is in the viewport, add the 'visible' class to trigger the animation
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
@@ -571,9 +610,14 @@ Our computer networking solutions are designed to provide reliable, secure, and 
         threshold: 0.5 // Trigger when 50% of the element is visible
     });
 
-    // Select all service link elements to observe
+    // Observe all the service link elements
     const serviceLinks = document.querySelectorAll('.service-link');
     serviceLinks.forEach(link => observer.observe(link));
+
+    // Add a delay for each card animation
+    document.querySelectorAll('.service-link').forEach((link, index) => {
+        link.style.transitionDelay = `${index * 0.2}s`; // Delay each card's animation
+    });
 </script>
 
 
