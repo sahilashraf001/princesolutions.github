@@ -3,293 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Solutions - IT & Security Solutions</title>
 
-    <title>Prince Solutions - IT & Security Solutions
-</title>
-
-     <style>
+    <style>
         /* General Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
         }
-        /* Header */
+
+        /* Header with Gradient Background */
         header {
-            background:linear-gradient(135deg,#000000,#808080); /* Gradient Background */
+            background: linear-gradient(135deg, #ff5c00, #333); /* Gradient Background */
             color: #fff;
-            padding: 15px 30px;
+            padding: 20px 40px;
             position: sticky;
             top: 0;
             z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Depth shadow */
+            animation: headerAnim 1.5s ease-out; /* Animation for header */
         }
 
         /* Logo Section */
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
         .logo img {
-            width: 60px; /* Adjust logo size */
+            width: 70px;
             height: auto;
-            margin-right: 10px; /* Space between logo and company name */
-            transition: transform 0.3s ease;
+            margin-right: 15px;
+            transform-origin: center;
+            transition: all 0.5s ease;
         }
 
         .logo:hover img {
-            transform: rotate(15deg) scale(1.1); /* 3D rotation effect on hover */
+            transform: rotate(15deg) scale(1.1); /* Rotate and scale the logo on hover */
         }
 
         .logo div {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            color: #fff;
+            position: relative;
+            animation: logoTextAnim 1.5s ease-in-out forwards;
         }
 
-        /* Navigation Styling */
+        /* Logo Text Animation */
+        @keyframes logoTextAnim {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Navigation Bar */
         nav {
-            text-align: right;
+            display: flex;
+            gap: 30px;
+            position: relative;
+            font-size: 1.1rem;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px;
             position: relative;
+            opacity: 0; /* Start with hidden links */
+            transform: translateY(-20px); /* Start off-screen */
             transition: color 0.3s ease, transform 0.3s ease;
+            animation: slideIn 0.5s forwards;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #ff9f00; /* Golden underline */
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-in-out;
+        /* Add delay for each link */
+        nav a:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        nav a:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        nav a:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        nav a:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        nav a:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        /* Slide-in and fade-in animation */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         nav a:hover {
-            color: #ff9f00; /* Golden text color */
-            transform: translateY(-2px); /* Lift effect */
+            color: #ff9f00;
+            transform: scale(1.1);
         }
 
-        nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        /* Remove the underline on hover */
+        nav a::after {
+            content: none; /* Remove the underline effect */
         }
 
-        /* Mobile-First Media Queries */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-            }
-            .logo div {
-                font-size: 1.3rem;
-            }
-            nav {
-                text-align: left;
-                width: 100%;
-            }
-            nav a {
-                margin: 10px 0;
-                display: block;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 15px 20px;
-            }
-            .logo div {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('path/to/your/bg.png') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            color: #000000;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #000000;
-            margin: 10px 0;
-        }
-        .btn {
-            background: #000000;
-            color: #fff;
-            padding: 10px 20px;
+        /* Hamburger Menu (Mobile) */
+        .menu-btn {
+            display: none;
+            background: none;
             border: none;
-            text-transform: uppercase;
+            color: #fff;
+            font-size: 1.8rem;
             cursor: pointer;
-            font-size: 1rem;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-           /* Sections */
-        section {
-            padding: 50px 20px;
-        }
-        .services, .about, .solutions, .contact {
-            margin: 30px 0;
-        }
-        .services h2, .about h2, .solutions h2, .contact h2 {
-            color: #003366;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            position: relative;
+            z-index: 200;
+            transition: transform 0.3s ease;
         }
 
-        /* Card Layout for Services Section */
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
-        .service-card h3 {
-            margin-top: 15px;
-            font-size: 1.5rem;
-        }
-        .service-card p {
-            font-size: 1rem;
-            margin-top: 10px;
+        .menu-btn:hover {
+            transform: rotate(90deg); /* Animation for hamburger on hover */
         }
 
-        /* Contact Form Styling */
-        form {
+        /* Navigation Popup (Mobile Menu) */
+        .nav-popup {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        form input, form textarea {
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        form input:focus, form textarea:focus {
-            border-color: #ff6347;
-            outline: none;
-        }
-        form button {
-            background: #28a745;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        form button:hover {
-            background: #218838;
+            align-items: center;
+            justify-content: center;
+            transition: right 0.3s ease-in-out;
         }
 
-        /* Footer */
-        footer {
-            background: #003366;
+        .nav-popup a {
             color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #ff6347;
             text-decoration: none;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Media Queries for Mobile Devices */
+        .nav-popup a:hover {
+            color: #ff9f00;
+        }
+
+        /* Media Queries for Mobile */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            nav {
+                display: none; /* Hide nav links on small screens */
             }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .services-list {
-                grid-template-columns: 1fr 1fr;
+
+            .menu-btn {
+                display: block; /* Show hamburger menu button */
             }
         }
+
         @media (max-width: 480px) {
             header {
                 padding: 15px 20px;
             }
-            .hero h1 {
-                font-size: 2rem;
+        }
+
+        /* Header Animation */
+        @keyframes headerAnim {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            .services-list {
-                grid-template-columns: 1fr;
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
-       </head>
+</head>
 <body>
-      <style>
-    body {
-        -webkit-user-select: none; /* Disable text selection in Webkit browsers (Chrome, Safari, etc.) */
-        -moz-user-select: none;    /* Disable text selection in Firefox */
-        -ms-user-select: none;     /* Disable text selection in Internet Explorer */
-        user-select: none;         /* Standard syntax for modern browsers */
-    }
-</style>
     <!-- Header -->
     <header>
         <div class="logo">
-            <!-- Company Logo Image -->
-             
-            <img src="https://github.com/user-attachments/assets/909c75cd-2514-403a-8870-fb8a21468f3d">
-          <div>Prince Solutions</div>
+            <img src="https://github.com/user-attachments/assets/909c75cd-2514-403a-8870-fb8a21468f3d" alt="Prince Solutions Logo">
+            <div>Prince Solutions</div>
         </div>
+
+        <!-- Navigation Bar (Desktop) -->
         <nav>
             <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#solutions">Solutions</a>
             <a href="#about">About Us</a>
             <a href="#contact">Contact Us</a>
-
         </nav>
+
+        <!-- Hamburger Menu Button -->
+        <button class="menu-btn" id="menu-btn">&#9776;</button>
     </header>
+
+    <!-- Mobile Navigation Popup -->
+    <div class="nav-popup" id="nav-popup">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <script>
+        // Get elements
+        const menuBtn = document.getElementById('menu-btn');
+        const navPopup = document.getElementById('nav-popup');
+
+        // Toggle nav popup
+        menuBtn.addEventListener('click', () => {
+            if (navPopup.style.right === '0px') {
+                navPopup.style.right = '-100%'; // Hide the popup
+            } else {
+                navPopup.style.right = '0'; // Show the popup
+            }
+        });
+
+        // Close the popup if clicked outside
+        window.addEventListener('click', (event) => {
+            if (!navPopup.contains(event.target) && !menuBtn.contains(event.target)) {
+                navPopup.style.right = '-100%'; // Hide the popup if clicked outside
+            }
+        });
+    </script>
+</body>
+</html>
+
                 <!-- Hero Section -->
 <section class="hero" id="home">
     <!-- Background Image -->
