@@ -91,7 +91,7 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 200px;
+            width: 220px;
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.9);
             display: flex;
@@ -99,7 +99,9 @@
             align-items: center;
             justify-content: center;
             transition: right 0.3s ease-in-out;
-            border-left: 4px solid #ff9f00;
+            border-left: 5px solid #ff9f00;
+            border-radius: 10px 0 0 10px; /* Rounded corners */
+            box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         .nav-popup a {
@@ -117,28 +119,125 @@
             transform: scale(1.1);
         }
 
-        /* Media Queries for Mobile */
+        /* Mobile Hero Section Styling */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        /* Background Image */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: -1;
+            overflow: hidden;
+            animation: zoomInBackground 2s ease-out forwards;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(40%) blur(3px);
+            transition: filter 0.2s ease;
+        }
+
+        .hero-img:hover {
+            filter: brightness(60%) blur(2px);
+        }
+
+        /* Content Styling */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        .btn.hero-btn {
+            background-color: #f8a928;
+            color: white;
+            font-size: 1.3rem;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
+        }
+
+        .btn.hero-btn:hover {
+            background-color: #d77a16;
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
+        }
+
+        /* Background Animation */
+        @keyframes zoomInBackground {
+            from {
+                transform: scale(1.2);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn.hero-btn {
+                font-size: 1.1rem;
+                padding: 15px 30px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
-                display: none; /* Hide nav links on small screens */
+                display: none;
             }
 
             .menu-btn {
-                display: block; /* Show hamburger menu button */
+                display: block;
             }
         }
 
-        /* Header Animation */
-        @keyframes headerAnim {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -162,6 +261,21 @@
         <!-- Hamburger Menu Button -->
         <button class="menu-btn" id="menu-btn">&#9776;</button>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Background Image -->
+        <div class="hero-background">
+            <img src="https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512" class="hero-img">
+        </div>
+
+        <!-- Content Container -->
+        <div class="hero-content">
+            <h1 class="hero-title">Empowering Businesses</h1>
+            <p class="hero-subtitle">Seamlessly integrate IT innovation with world-class security.</p>
+            <a href="#services" class="btn hero-btn">Explore Our Services</a>
+        </div>
+    </section>
 
     <!-- Mobile Navigation Popup -->
     <div class="nav-popup" id="nav-popup">
@@ -197,191 +311,6 @@
 </body>
 </html>
 
-
-                <!-- Hero Section -->
-<section class="hero" id="home">
-    <!-- Background Image -->
-    <div class="hero-background">
-        <img src="https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512" class="hero-img">
-    </div>
-
-    <!-- Content Container -->
-    <div class="hero-content">
-        <h1 class="hero-title"><font color="white">Empowering Businesses</font></h1>
-        <p class="hero-subtitle"><font color="white">Seamlessly integrate IT innovation with world-class security.</font></p>
-        <a href="#services" class="btn hero-btn">Explore Our Services</a>
-    </div>
-</section>
-
-<!-- Styles -->
-<style>
-    /* Hero Section Styles */
-    .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        text-align: center;
-        color: white;
-    }
-
-    /* Background Image */
-    .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 120%;
-        z-index: -1;
-        overflow: hidden;
-        animation: zoomInBackground 2s ease-out forwards; /* Animation for background */
-    }
-
-    .hero-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(40%) blur(3px);
-        transition: filter 0.2s ease;
-    }
-
-    .hero-img:hover {
-        filter: brightness(60%) blur(2px);
-    }
-
-    /* Content Styling */
-    .hero-content {
-        position: relative;
-        z-index: 1;
-        padding: 30px;
-        max-width: 800px;
-        background: rgba(0, 0, 0, 0.5); /* Dark background */
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        animation: zoomIn 1.5s ease-out forwards; /* Zoom-in animation for content */
-    }
-
-    .hero-title {
-        font-size: 4.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        letter-spacing: 3px;
-        opacity: 0; /* Start invisible for animation */
-        transform: translate(-50%, -50%) scale(0); /* Start small and from top-left */
-        animation: zoomInTitle 1.2s ease-out forwards; /* Animation for title */
-    }
-
-    .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-        line-height: 1.8;
-        letter-spacing: 1px;
-        opacity: 0; /* Start invisible for animation */
-        transform: translate(50%, 50%) scale(0); /* Start small and from bottom-right */
-        animation: zoomInSubtitle 1.4s ease-out forwards; /* Animation for subtitle */
-        animation-delay: 0.3s; /* Delay to make subtitle appear after the title */
-    }
-
-    /* Button Styling */
-    .btn.hero-btn {
-        background-color: #f8a928;
-        color: white;
-        font-size: 1.3rem;
-        padding: 18px 40px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
-        opacity: 0; /* Start invisible */
-        transform: scale(0); /* Start small from the center */
-        animation: zoomInButton 1.6s ease-out forwards; /* Animation for button */
-        animation-delay: 0.6s; /* Delay for button */
-    }
-
-    .btn.hero-btn:hover {
-        background-color: #d77a16;
-        transform: scale(1.1); /* Scale effect on hover */
-        box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
-    }
-
-    /* Zoom-in Animations */
-    @keyframes zoomInTitle {
-        from {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0);
-        }
-        to {
-            opacity: 1;
-            transform: translate(0, 0) scale(1); /* End at normal position and scale */
-        }
-    }
-
-    @keyframes zoomInSubtitle {
-        from {
-            opacity: 0;
-            transform: translate(50%, 50%) scale(0);
-        }
-        to {
-            opacity: 1;
-            transform: translate(0, 0) scale(1); /* End at normal position and scale */
-        }
-    }
-
-    @keyframes zoomInButton {
-        from {
-            opacity: 0;
-            transform: scale(0);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1); /* End at normal scale */
-        }
-    }
-
-    @keyframes zoomIn {
-        from {
-            opacity: 0;
-            transform: scale(0.7); /* Start with zoom-out effect */
-        }
-        to {
-            opacity: 1;
-            transform: scale(1); /* End at normal scale */
-        }
-    }
-
-    /* Background Animation */
-    @keyframes zoomInBackground {
-        from {
-            transform: scale(1.2); /* Start zoomed in */
-        }
-        to {
-            transform: scale(1); /* End at normal scale */
-        }
-    }
-
-    /* Mobile responsiveness */
-    @media screen and (max-width: 768px) {
-        .hero-title {
-            font-size: 3.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-
-        .btn.hero-btn {
-            font-size: 1.1rem;
-            padding: 15px 30px;
-        }
-    }
-</style>
 
 
     
