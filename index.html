@@ -12,8 +12,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            scroll-behavior: smooth;
             background-color: #f4f4f4;
+            scroll-behavior: smooth;
         }
 
         /* Header with Gradient Background */
@@ -28,7 +28,6 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Depth shadow */
-            animation: headerAnim 1.5s ease-out; /* Animation for header */
         }
 
         /* Logo Section */
@@ -47,38 +46,18 @@
             width: 70px;
             height: auto;
             margin-right: 15px;
-            transform-origin: center;
-            transition: all 0.5s ease;
-        }
-
-        .logo:hover img {
-            transform: rotate(15deg) scale(1.1); /* Rotate and scale the logo on hover */
         }
 
         .logo div {
             font-size: 1.8rem;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
             color: #fff;
-            position: relative;
-            animation: logoTextAnim 1.5s ease-in-out forwards;
-        }
-
-        /* Logo Text Animation */
-        @keyframes logoTextAnim {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
         }
 
         /* Navigation Bar */
         nav {
             display: flex;
             gap: 30px;
-            position: relative;
-            font-size: 1.1rem;
         }
 
         nav a {
@@ -88,50 +67,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 10px;
-            position: relative;
-            opacity: 0; /* Start with hidden links */
-            transform: translateY(-20px); /* Start off-screen */
-            transition: color 0.3s ease, transform 0.3s ease;
-            animation: slideIn 0.5s forwards;
-        }
-
-        /* Add delay for each link */
-        nav a:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        nav a:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        nav a:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        nav a:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-        nav a:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-
-        /* Slide-in and fade-in animation */
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #ff9f00;
             transform: scale(1.1);
-        }
-
-        /* Remove the underline on hover */
-        nav a::after {
-            content: none; /* Remove the underline effect */
         }
 
         /* Hamburger Menu (Mobile) */
@@ -140,15 +81,9 @@
             background: none;
             border: none;
             color: #fff;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
-            position: relative;
-            z-index: 200;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-btn:hover {
-            transform: rotate(90deg); /* Animation for hamburger on hover */
+            z-index: 100;
         }
 
         /* Navigation Popup (Mobile Menu) */
@@ -156,27 +91,30 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 250px;
+            width: 200px;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: right 0.3s ease-in-out;
+            border-left: 4px solid #ff9f00;
         }
 
         .nav-popup a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin: 20px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         .nav-popup a:hover {
             color: #ff9f00;
+            transform: scale(1.1);
         }
 
         /* Media Queries for Mobile */
@@ -187,12 +125,6 @@
 
             .menu-btn {
                 display: block; /* Show hamburger menu button */
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 15px 20px;
             }
         }
 
@@ -210,6 +142,7 @@
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <div class="logo">
@@ -230,71 +163,6 @@
         <button class="menu-btn" id="menu-btn">&#9776;</button>
     </header>
 
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Navigation Popup</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-popup {
-            position: fixed;
-            top: 0;
-            right: -100%; /* Start hidden */
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: right 0.3s ease-in-out; /* Smooth transition */
-            padding-top: 40px;
-            box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-popup a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 15px 0;
-            transition: color 0.3s;
-        }
-
-        .nav-popup a:hover {
-            color: #ff6f61; /* Attractive hover color */
-        }
-
-        /* Menu button */
-        .menu-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            font-size: 30px;
-            background: transparent;
-            border: none;
-            color: #333;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        @media (max-width: 768px) {
-            .nav-popup {
-                width: 220px; /* Slightly smaller */
-            }
-        }
-    </style>
-</head>
-<body>
-
     <!-- Mobile Navigation Popup -->
     <div class="nav-popup" id="nav-popup">
         <a href="#home">Home</a>
@@ -303,9 +171,6 @@
         <a href="#about">About Us</a>
         <a href="#contact">Contact Us</a>
     </div>
-
-    <!-- Menu button to toggle navigation -->
-    <button id="menu-btn" class="menu-btn">☰</button>
 
     <script>
         // Get elements
@@ -331,6 +196,7 @@
 
 </body>
 </html>
+
 
                 <!-- Hero Section -->
 <section class="hero" id="home">
