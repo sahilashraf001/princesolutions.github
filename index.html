@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prince Solutions - IT & Security Solutions</title>
+    <script>
+        // This ensures that when the page is refreshed, we go to the top.
+        window.addEventListener("beforeunload", function() {
+          window.scrollTo(0, 0); // Scrolls to the top before the page unloads
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+          window.scrollTo(0, 0); // Scrolls to the top when the page finishes loading
+        });
+
+        // Add an event listener to the Home link to refresh and scroll to top
+        function reloadAndScroll() {
+          window.location.reload();  // Forces the page to reload
+          window.scrollTo(0, 0); // Ensures the page is at the top when it reloads
+        }
+    </script>
     
     <style>
         /* General Styling */
@@ -186,14 +202,13 @@
     </style>
 </head>
 <body>
-          <style>
+           <style>
         body {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-        }
-    </style>
+
     <!-- Header -->
     <header>
         <div class="logo">
@@ -203,12 +218,17 @@
 
         <!-- Navigation Bar (Desktop) -->
         <nav>
-            <a href="#home">Home</a>
+            <a href="javascript:void(0);" onclick="reloadAndScroll()">Home</a> <!-- Modified the 'Home' link to reload and scroll to the top -->
             <a href="#services">Services</a>
             <a href="#solutions">Solutions</a>
             <a href="#about">About Us</a>
             <a href="#contact">Contact Us</a>
         </nav>
+    </header>
+    <!-- Add more content here -->
+</body>
+</html>
+
 
         <!-- Hamburger Menu Button -->
         <button class="menu-btn" id="menu-btn">&#9776;</button>
@@ -216,7 +236,8 @@
 
     <!-- Mobile Navigation Popup -->
     <div class="nav-popup" id="nav-popup">
-        <a href="#home">Home</a>
+        <a href="javascript:void(0);" onclick="reloadAndScroll()">Home</a> <!-- Modified the 'Home' link to reload and scroll to the top -->
+
         <a href="#services">Services</a>
         <a href="#solutions">Solutions</a>
         <a href="#about">About Us</a>
