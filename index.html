@@ -242,15 +242,13 @@
 
                 <!-- Hero Section -->
 <section class="hero" id="home">
-    <!-- Background Image -->
-    <div class="hero-background">
-        <img src="https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512" class="hero-img">
-    </div>
+    <!-- Background Slideshow -->
+    <div class="hero-background"></div>
 
     <!-- Content Container -->
     <div class="hero-content">
-        <h1 class="hero-title"><font color="white">Empowering Businesses</font></h1>
-        <p class="hero-subtitle"><font color="white">Seamlessly integrate IT innovation with world-class security.</font></p>
+        <h1 class="hero-title">Empowering Businesses</h1>
+        <p class="hero-subtitle">Seamlessly integrate IT innovation with world-class security.</p>
         <a href="#services" class="btn hero-btn">Explore Our Services</a>
     </div>
 </section>
@@ -270,28 +268,27 @@
         color: white;
     }
 
-    /* Background Image */
+    /* Background Slideshow */
     .hero-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 120%;
-        z-index: -1;
-        overflow: hidden;
-        animation: zoomInBackground 2s ease-out forwards; /* Animation for background */
-    }
-
-    .hero-img {
-        width: 100%;
         height: 100%;
-        object-fit: cover;
-        filter: brightness(40%) blur(3px);
-        transition: filter 0.2s ease;
+        z-index: -1;
+        animation: slideshow 15s infinite; /* Slideshow with 3-second interval per image */
+        background-size: cover;
+        background-position: center;
     }
 
-    .hero-img:hover {
-        filter: brightness(60%) blur(2px);
+    /* Slideshow Background Images */
+    @keyframes slideshow {
+        0% { background-image: url("C:/Users/sahil/Downloads/Picsart_24-08-05_10-17-03-040.jpg"); }
+        20% { background-image: url("C:/Users/sahil/Downloads/cb3f59a3-6c76-4b89-94ba-c4cb47aa7e7d.__CR00970600_PT0_SX970_V1___.jpg"); }
+        40% { background-image: url("https://github.com/user-attachments/assets/another-image-2.jpg"); }
+        60% { background-image: url("https://github.com/user-attachments/assets/another-image-3.jpg"); }
+        80% { background-image: url("https://github.com/user-attachments/assets/another-image-4.jpg"); }
+        100% { background-image: url("https://github.com/user-attachments/assets/f3eb778f-8c1f-40d9-aaa6-7d711abed512.jpg"); }
     }
 
     /* Content Styling */
@@ -300,10 +297,10 @@
         z-index: 1;
         padding: 30px;
         max-width: 800px;
-        background: rgba(0, 0, 0, 0.5); /* Dark background */
+        background: rgba(0, 0, 0, 0.6); /* Dark background with more opacity */
         border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        animation: zoomIn 1.5s ease-out forwards; /* Zoom-in animation for content */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        animation: fadeInUp 1.5s ease-out forwards; /* Upward fade-in effect */
     }
 
     .hero-title {
@@ -312,20 +309,17 @@
         text-transform: uppercase;
         margin-bottom: 20px;
         letter-spacing: 3px;
-        opacity: 0; /* Start invisible for animation */
-        transform: translate(-50%, -50%) scale(0); /* Start small and from top-left */
-        animation: zoomInTitle 1.2s ease-out forwards; /* Animation for title */
+        opacity: 0;
+        animation: slideInFromTop 1.2s ease-out forwards;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: 30px;
         line-height: 1.8;
-        letter-spacing: 1px;
-        opacity: 0; /* Start invisible for animation */
-        transform: translate(50%, 50%) scale(0); /* Start small and from bottom-right */
-        animation: zoomInSubtitle 1.4s ease-out forwards; /* Animation for subtitle */
-        animation-delay: 0.3s; /* Delay to make subtitle appear after the title */
+        opacity: 0;
+        animation: fadeInSubtitle 1.4s ease-out forwards;
+        animation-delay: 0.3s;
     }
 
     /* Button Styling */
@@ -341,70 +335,59 @@
         text-decoration: none;
         display: inline-block;
         box-shadow: 0 10px 30px rgba(248, 169, 40, 0.5);
-        opacity: 0; /* Start invisible */
-        transform: scale(0); /* Start small from the center */
-        animation: zoomInButton 1.6s ease-out forwards; /* Animation for button */
-        animation-delay: 0.6s; /* Delay for button */
+        opacity: 0;
+        animation: fadeInButton 1.6s ease-out forwards;
+        animation-delay: 0.6s;
     }
 
     .btn.hero-btn:hover {
         background-color: #d77a16;
-        transform: scale(1.1); /* Scale effect on hover */
+        transform: scale(1.05);
         box-shadow: 0 15px 30px rgba(248, 169, 40, 0.6);
     }
 
-    /* Zoom-in Animations */
-    @keyframes zoomInTitle {
-        from {
+    /* Animations */
+    @keyframes slideInFromTop {
+        0% {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0);
+            transform: translateY(-50px);
         }
-        to {
+        100% {
             opacity: 1;
-            transform: translate(0, 0) scale(1); /* End at normal position and scale */
+            transform: translateY(0);
         }
     }
 
-    @keyframes zoomInSubtitle {
-        from {
+    @keyframes fadeInSubtitle {
+        0% {
             opacity: 0;
-            transform: translate(50%, 50%) scale(0);
+            transform: translateY(30px);
         }
-        to {
+        100% {
             opacity: 1;
-            transform: translate(0, 0) scale(1); /* End at normal position and scale */
+            transform: translateY(0);
         }
     }
 
-    @keyframes zoomInButton {
-        from {
+    @keyframes fadeInButton {
+        0% {
             opacity: 0;
             transform: scale(0);
         }
-        to {
+        100% {
             opacity: 1;
-            transform: scale(1); /* End at normal scale */
+            transform: scale(1);
         }
     }
 
-    @keyframes zoomIn {
-        from {
+    @keyframes fadeInUp {
+        0% {
             opacity: 0;
-            transform: scale(0.7); /* Start with zoom-out effect */
+            transform: translateY(50px);
         }
-        to {
+        100% {
             opacity: 1;
-            transform: scale(1); /* End at normal scale */
-        }
-    }
-
-    /* Background Animation */
-    @keyframes zoomInBackground {
-        from {
-            transform: scale(1.2); /* Start zoomed in */
-        }
-        to {
-            transform: scale(1); /* End at normal scale */
+            transform: translateY(0);
         }
     }
 
@@ -425,11 +408,7 @@
     }
 </style>
 
-
-    
-</style>
-
-<!-- Service card section Section -->
+<!-- Services Section -->
 <section class="services" id="services">
     <h2 class="section-title">Our Services</h2>
 
@@ -480,7 +459,7 @@
     </div>
 </section>
 
-<!-- Styles -->
+<!-- Styles for Services Section -->
 <style>
     /* General styles */
     body {
@@ -510,10 +489,11 @@
     /* Services List - Grid Layout */
     .services-list {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Auto-adjust number of columns based on available space */
         gap: 20px;
         justify-items: center;
         padding: 0 10px;
+        align-items: stretch; /* Ensures cards stretch to the same height */
     }
 
     /* Service Link styles */
@@ -533,11 +513,13 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         text-align: center;
         width: 100%;
-        max-width: 320px;
+        max-width: 320px; /* Make sure the cards don’t grow too large */
+        height: 100%; /* Ensure cards stretch to full height */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
     }
 
+    /* Service Card Hover Effects */
     .service-card:hover {
         background: linear-gradient(135deg, #f9a826, #f44336); /* Golden to red on hover */
         transform: translateY(-10px); /* Lift effect */
