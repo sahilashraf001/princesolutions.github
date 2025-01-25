@@ -530,13 +530,15 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
+        z-index: 1;
     }
 
     /* Service Card Hover Effects */
     .service-card:hover {
         background: linear-gradient(135deg, #f9a826, #f44336); /* Golden to red on hover */
-        transform: translateY(-10px); /* Lift effect */
+        transform: scale(1.05); /* Slightly scale up the hovered card */
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        z-index: 2; /* Bring the hovered card to the front */
     }
 
     /* Service Icon Styles */
@@ -582,6 +584,12 @@
     /* Reveal More Info when hovering over the card */
     .service-card:hover .more-info {
         display: block;
+    }
+
+    /* Hide All Other Cards on Hover */
+    .services-list .service-link:not(:hover) .service-card {
+        opacity: 0.3; /* Make non-hovered cards less visible */
+        transform: scale(0.9); /* Shrink non-hovered cards */
     }
 
     /* Responsive design */
