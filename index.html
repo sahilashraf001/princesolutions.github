@@ -240,7 +240,7 @@
 </html>
 
 
-                <!-- Hero Section -->
+               <!-- Hero Section -->
 <section class="hero" id="home">
     <!-- Background Slideshow -->
     <div class="hero-background"></div>
@@ -420,7 +420,10 @@
                     <i class="service-icon fas fa-laptop-code"></i> <!-- IT Solutions Icon -->
                 </div>
                 <h3>IT Solutions</h3>
-                <p>Custom software development, IT consulting.</p>
+                <p class="service-description">Custom software development, IT consulting.</p>
+                <div class="more-info">
+                    <p>We provide end-to-end IT solutions to streamline your business operations.</p>
+                </div>
             </div>
         </a>
 
@@ -431,7 +434,10 @@
                     <i class="service-icon fas fa-video"></i> <!-- CCTV Icon -->
                 </div>
                 <h3>CCTV Surveillance Services</h3>
-                <p>Providing advanced security solutions to monitor and protect properties.</p>
+                <p class="service-description">Providing advanced security solutions to monitor and protect properties.</p>
+                <div class="more-info">
+                    <p>Our CCTV services offer real-time monitoring to enhance your security systems.</p>
+                </div>
             </div>
         </a>
 
@@ -442,7 +448,10 @@
                     <i class="service-icon fas fa-network-wired"></i> <!-- Networking Icon -->
                 </div>
                 <h3>Networking</h3>
-                <p>Reliable, secure, and scalable connectivity for businesses of all sizes.</p>
+                <p class="service-description">Reliable, secure, and scalable connectivity for businesses of all sizes.</p>
+                <div class="more-info">
+                    <p>We help you build and maintain robust networks tailored to your specific needs.</p>
+                </div>
             </div>
         </a>
 
@@ -453,7 +462,10 @@
                     <i class="service-icon fas fa-bolt"></i> <!-- Electrical Solutions Icon -->
                 </div>
                 <h3>Electrical Solutions</h3>
-                <p>Comprehensive electrical services for residential and commercial needs.</p>
+                <p class="service-description">Comprehensive electrical services for residential and commercial needs.</p>
+                <div class="more-info">
+                    <p>We offer reliable and cost-effective electrical solutions for any project.</p>
+                </div>
             </div>
         </a>
     </div>
@@ -517,6 +529,7 @@
         height: 100%; /* Ensure cards stretch to full height */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
+        overflow: hidden;
     }
 
     /* Service Card Hover Effects */
@@ -551,10 +564,24 @@
     }
 
     /* Service Card Description */
-    .service-card p {
+    .service-description {
         font-size: 1rem;
         color: #bbb; /* Lighter text color for description */
         line-height: 1.6;
+    }
+
+    /* More Info (Initially hidden) */
+    .more-info {
+        display: none;
+        font-size: 1rem;
+        color: #fff;
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+
+    /* Reveal More Info when hovering over the card */
+    .service-card:hover .more-info {
+        display: block;
     }
 
     /* Responsive design */
