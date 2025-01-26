@@ -163,8 +163,7 @@
 
           /* When the menu is active/open */
            .nav-popup.open {
-           height: 100vh; /* Makes the menu take full screen height when opened*/                  
-      
+           height: 100vh; /* Makes the menu take full screen height when opened                  */      
   .nav-popup a {
             color: #fff;
             text-decoration: none;
@@ -193,32 +192,7 @@
             header {
                 padding: 15px 20px;
             }
-        } 
-
-         <!-- Hamburger Menu Button -->
-  <button class="menu-btn" aria-label="Open Menu">
-    ☰
-  </button>
-
-  <!-- Navigation Popup -->
-  <div class="nav-popup">
-    <a href="javascript:void(0);" onclick="reloadAndScroll()">Home</a> <!-- Modified the 'Home' link to reload and scroll to the top -->
-        <a href="#services">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>   
-  </div>
-
-  <script>
-    // Toggle the mobile menu when the hamburger button is clicked
-    const menuBtn = document.querySelector('.menu-btn');
-    const navPopup = document.querySelector('.nav-popup');
-
-    menuBtn.addEventListener('click', () => {
-      navPopup.classList.toggle('open');
-    });
-  </script>
-
+        }
 
         /* Header Animation */
         @keyframes headerAnim {
