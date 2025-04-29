@@ -1,13 +1,14 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // Removed for production builds on Vercel to catch errors
+  // Ensure TypeScript and ESLint errors are caught during Vercel builds
   // typescript: {
-  //   ignoreBuildErrors: true, // This should be false or removed for production
+  //   ignoreBuildErrors: false, // Default is false
   // },
   // eslint: {
-  //   ignoreDuringBuilds: true, // This should be false or removed for production
+  //   ignoreDuringBuilds: false, // Default is false
   // },
   images: {
     remotePatterns: [
@@ -44,3 +45,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
