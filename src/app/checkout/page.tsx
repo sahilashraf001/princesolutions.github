@@ -52,25 +52,29 @@ export default function CheckoutPage() {
         body: JSON.stringify({ subject, body, toEmail }),
       });
 
+      // Clone the response to safely read the body multiple times
+      const responseClone = response.clone();
+
       if (!response.ok) {
-        let errorMessage = 'Failed to send email notification.';
+        let errorMessage = `HTTP error! status: ${response.status}`;
         try {
             // Try to parse JSON error first
-            const responseClone = response.clone(); // Clone to allow reading body multiple times if needed
             const errorData = await responseClone.json();
             errorMessage = errorData.message || JSON.stringify(errorData);
         } catch (jsonError) {
             // If JSON parsing fails, try reading as text
+             console.warn("Could not parse error response as JSON, trying text.", jsonError);
             try {
-              errorMessage = await response.text() || `HTTP error! status: ${response.status}`;
+              errorMessage = (await response.text()) || errorMessage; // Use original response for text()
             } catch (textError) {
-               errorMessage = `HTTP error! status: ${response.status}. Could not read error details.`;
+               console.error("Could not read error response body as text.", textError);
+               // Keep the original HTTP status error message
             }
         }
         console.error('Failed to send email:', errorMessage);
         toast({
           title: 'Email Sending Error',
-          description: errorMessage,
+          description: `Failed to send notification: ${errorMessage}`,
           variant: 'destructive',
         });
         return false; // Indicate failure
@@ -134,7 +138,7 @@ export default function CheckoutPage() {
                        <ul>
                        ${cartItems.map(item => `<li>${item.name} (Qty: ${item.quantity}) - ${formatAsINR(item.price * item.quantity)}</li>`).join('')}
                        </ul>
-                       <br>Please send payment details via WhatsApp.`;
+                       <br>Please send payment details via WhatsApp to ${phoneNumber}.`;
 
     // Send email notification TO ADMIN
     const emailSent = await sendEmailNotification(emailSubject, emailBody); // Sends to admin by default
@@ -150,7 +154,7 @@ export default function CheckoutPage() {
         // Specific error is shown by sendEmailNotification
         toast({
           title: 'Request Failed',
-          description: 'Could not send the request for account details. Please check the error message or try again.',
+          description: 'Could not send the request for account details. Please check the error message or try again later.',
           variant: 'destructive',
         });
     }
@@ -424,6 +428,7 @@ export default function CheckoutPage() {
 
                    {/* Action Button */}
                    <Button
+                      type="button" // Specify type="button" to prevent form submission
                       onClick={handleRequestAccountDetails}
                       className="w-full mt-6 bg-accent text-accent-foreground hover:bg-orange-600 text-lg py-3"
                       disabled={isLoadingRequest || !email || !phoneNumber || !address || !city || !state || !postalCode}
@@ -480,6 +485,7 @@ export default function CheckoutPage() {
                   </div>
                    {/* Action Button */}
                   <Button
+                     type="button" // Specify type="button" to prevent form submission
                      onClick={handleReceiptUpload}
                      className="w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-3"
                      disabled={!receipt || isLoadingConfirm}

@@ -5,11 +5,11 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from '@/context/cart-context'; // Import CartProvider
 
-// If using Geist fonts, uncomment these lines:
-// import { Geist } from 'geist/font/sans';
+// If using Geist fonts, uncomment these lines and install the package:
+// import { GeistSans } from 'geist/font/sans';
 // import { GeistMono } from 'geist/font/mono';
-// const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' });
-// const geistMono = GeistMono({ subsets: ['latin'], variable: '--font-geist-mono' });
+// const geistSans = GeistSans; // Assign directly if using variable fonts
+// const geistMono = GeistMono; // Assign directly if using variable fonts
 
 // Using Inter font as a placeholder if Geist is not set up
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });

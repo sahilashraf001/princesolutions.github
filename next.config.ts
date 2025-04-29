@@ -4,10 +4,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   // Removed for production builds on Vercel to catch errors
   // typescript: {
-  //   ignoreBuildErrors: true,
+  //   ignoreBuildErrors: true, // This should be false or removed for production
   // },
   // eslint: {
-  //   ignoreDuringBuilds: true,
+  //   ignoreDuringBuilds: true, // This should be false or removed for production
   // },
   images: {
     remotePatterns: [
