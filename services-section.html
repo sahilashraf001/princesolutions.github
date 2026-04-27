@@ -263,213 +263,239 @@
 
 
 <!-- Services Section -->
-<section class="services" id="services">
-    <h2 class="section-title">Our Services</h2>
-
-    <div class="services-list">
-        <!-- Service Card 1 -->
-        <a href="contact.html" class="service-link">
-            <div class="service-card">
-                <div class="icon-container">
-                    <i class="service-icon fas fa-laptop-code"></i> <!-- IT Solutions Icon -->
+<section class="services-tabs" id="services">
+    <div class="container">
+        <div class="tabs-wrapper">
+            
+            <div class="tabs-nav">
+                <div class="nav-header">
+                    <h3>Our Expertise</h3>
+                    <p>Select a service to view details</p>
                 </div>
-                <h3>IT Solutions</h3>
-                <p class="service-description">Custom software development, IT consulting.</p>
-                <div class="more-info">
-                    <p>We provide end-to-end IT solutions to streamline your business operations.</p>
-                </div>
+                <button class="tab-btn active" onclick="openService(event, 'it-solutions')">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>IT Solutions</span>
+                </button>
+                <button class="tab-btn active2" onclick="openService(event, 'CCTV')">
+                    <i class="fas fa-video"></i>
+                    <span>CCTV Surveillance</span>
+                </button>
+                <button class="tab-btn" onclick="openService(event, 'networking')">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Networking</span>
+                </button>
+                <button class="tab-btn" onclick="openService(event, 'electrical')">
+                    <i class="fas fa-bolt"></i>
+                    <span>Electrical Solutions</span>
+                </button>
             </div>
-        </a>
 
-        <!-- Service Card 2 -->
-        <a href="cctvsurveillanceservices.html" class="service-link">
-            <div class="service-card">
-                <div class="icon-container">
-                    <i class="service-icon fas fa-video"></i> <!-- CCTV Icon -->
+            <div class="tabs-content">
+                <div id="it-solutions" class="tab-pane active">
+                    <div class="content-body">
+                        <span class="category-tag">Strategic Tech</span>
+                        <h2>Comprehensive IT Solutions</h2>
+                        <p>We provide end-to-end digital transformation services. From custom software development to cloud infrastructure management, we ensure your business technology is scalable, secure, and efficient.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Custom Software Development</li>
+                            <li><i class="fas fa-check-circle"></i> Cloud Migration & Hosting</li>
+                            <li><i class="fas fa-check-circle"></i> Managed IT Support</li>
+                        </ul>
+                        <a href="contact.html" class="cta-btn">Details</a>
+                    </div>
                 </div>
-                <h3>CCTV Surveillance Services</h3>
-                <p class="service-description">Providing advanced security solutions to monitor and protect properties.</p>
-                <div class="more-info">
-                    <p>Our CCTV services offer real-time monitoring to enhance your security systems.</p>
-                </div>
-            </div>
-        </a>
 
-        <!-- Service Card 3 -->
-        <a href="networking.html" class="service-link">
-            <div class="service-card">
-                <div class="icon-container">
-                    <i class="service-icon fas fa-network-wired"></i> <!-- Networking Icon -->
+                <div id="CCTV" class="tab-pane active2">
+                    <div class="content-body">
+                        <span class="category-tag">Security Solutions</span>
+                        <h2>Advanced CCTV Surveillance</h2>
+                        <p>Our CCTV solutions offer high-definition video monitoring, remote access, and intelligent analytics to enhance your security. We design and install systems tailored to your specific needs.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> HD Video Quality</li>
+                            <li><i class="fas fa-check-circle"></i> Remote Monitoring</li>
+                            <li><i class="fas fa-check-circle"></i> AI-Powered Analytics</li>
+                        </ul>
+                        <a href="cctvsurveillanceservices.html" class="cta-btn">Details</a>  
+                    </div>
                 </div>
-                <h3>Networking</h3>
-                <p class="service-description">Reliable, secure, and scalable connectivity for businesses of all sizes.</p>
-                <div class="more-info">
-                    <p>We help you build and maintain robust networks tailored to your specific needs.</p>
-                </div>
-            </div>
-        </a>
 
-        <!-- Service Card 4 -->
-        <a href="cloud-solutions-link.html" class="service-link">
-            <div class="service-card">
-                <div class="icon-container">
-                    <i class="service-icon fas fa-bolt"></i> <!-- Electrical Solutions Icon -->
                 </div>
-                <h3>Electrical Solutions</h3>
-                <p class="service-description">Comprehensive electrical services for residential and commercial needs.</p>
-                <div class="more-info">
-                    <p>We offer reliable and cost-effective electrical solutions for any project.</p>
-                </div>
-            </div>
-        </a>
+        </div>
     </div>
 </section>
-
-<!-- Styles for Services Section -->
 <style>
-    /* General styles */
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #2a2a2a; /* Dark background for the body */
-        color: #ddd; /* Light text */
-        margin: 0;
-        padding: 0;
+    .services-tabs {
+        padding: 80px 0;
+        background: #f8f9fa;
+        font-family: 'Poppins', sans-serif;
     }
 
-    /* Service section styles */
-    .services {
-        padding: 80px 20px;
-        background-color: #1f1f1f; /* Darker section background */
-    }
-
-    .section-title {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #f9a826; /* Golden Accent Color */
-        text-align: center;
-        margin-bottom: 40px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    /* Services List - Grid Layout */
-    .services-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Auto-adjust number of columns based on available space */
-        gap: 20px;
-        justify-items: center;
-        padding: 0 10px;
-        align-items: stretch; /* Ensures cards stretch to the same height */
-    }
-
-    /* Service Link styles */
-    .service-link {
-        display: block;
-        text-decoration: none;
-        opacity: 0; /* Initially hidden for animation */
-        transform: translateY(50px); /* Start from bottom */
-        transition: opacity 0.6s ease, transform 0.8s ease; /* Smooth animation */
-    }
-
-    /* Service Card Styles */
-    .service-card {
-        background: linear-gradient(135deg, #1f1f1f, #333); /* Dark gradient background */
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        text-align: center;
-        width: 100%;
-        max-width: 320px; /* Make sure the cards don’t grow too large */
-        height: 100%; /* Ensure cards stretch to full height */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
+    .tabs-wrapper {
+        display: flex;
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.05);
         overflow: hidden;
-        z-index: 1;
+        min-height: 500px;
+        border: 1px solid #eee;
     }
 
-    /* Service Card Hover Effects */
-    .service-card:hover {
-        background: linear-gradient(135deg, #f9a826, #f44336); /* Golden to red on hover */
-        transform: scale(1.05); /* Slightly scale up the hovered card */
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        z-index: 2; /* Bring the hovered card to the front */
+    /* Left Sidebar */
+    .tabs-nav {
+        flex: 1;
+        background: #1a1a1a;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    /* Service Icon Styles */
-    .icon-container {
+    .nav-header {
+        padding: 0 15px 20px;
+        border-bottom: 1px solid #333;
         margin-bottom: 20px;
     }
 
-    .service-icon {
-        font-size: 3rem;
-        color: #f9a826; /* Golden color for icons */
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-    }
+    .nav-header h3 { color: #fff; margin: 0; }
+    .nav-header p { color: #888; font-size: 0.8rem; margin: 5px 0 0; }
 
-    /* Hover Effect for Icons */
-    .service-card:hover .service-icon {
-        color: #fff; /* White icon on hover */
-    }
-
-    /* Service Card Title Styles */
-    .service-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-        color: #fff; /* White text for title */
-    }
-
-    /* Service Card Description */
-    .service-description {
+    .tab-btn {
+        background: transparent;
+        border: none;
+        padding: 18px 20px;
+        color: #aaa;
+        display: flex;
+        align-items: center;
+        gap: 15px;
         font-size: 1rem;
-        color: #bbb; /* Lighter text color for description */
-        line-height: 1.6;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: 0.3s;
+        text-align: left;
     }
 
-    /* More Info (Initially hidden) */
-    .more-info {
+    .tab-btn i { font-size: 1.2rem; }
+
+    .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+    .tab-btn.active {
+        background: #ff9f00;
+        color: #000;
+    }
+
+    /* Right Content Area */
+    .tabs-content {
+        flex: 2;
+        padding: 60px;
+        background: #fff;
+        position: relative;
+    }
+
+    .tab-pane {
         display: none;
-        font-size: 1rem;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .tab-pane.active { display: block; }
+
+    .category-tag {
+        color: #ff9f00;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .content-body h2 {
+        font-size: 2.5rem;
+        margin: 10px 0 20px;
+        color: #1a1a1a;
+    }
+
+    .content-body p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0;
+    }
+
+    .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .feature-list i { color: #ff9f00; }
+
+    .cta-btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: #1a1a1a;
         color: #fff;
-        margin-top: 10px;
-        line-height: 1.6;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: 0.3s;
     }
 
-    /* Reveal More Info when hovering over the card */
-    .service-card:hover .more-info {
-        display: block;
+    .cta-btn:hover { background: #ff9f00; color: #000; transform: scale(1.05); }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateX(10px); }
+        to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Hide All Other Cards on Hover */
-    .services-list .service-link:not(:hover) .service-card {
-        opacity: 0.3; /* Make non-hovered cards less visible */
-        transform: scale(0.9); /* Shrink non-hovered cards */
-    }
-
-    /* Responsive design */
-    @media (max-width: 1024px) {
-        .services-list {
-            grid-template-columns: repeat(2, 1fr); /* Two cards in a row on medium screens */
-        }
-    }
-
-    @media (max-width: 768px) {
-        .services-list {
-            grid-template-columns: 1fr; /* Stack the cards vertically on smaller screens */
-        }
-    }
-
-    /* Add animation for service link when visible */
-    .service-link.visible {
-        opacity: 1;
-        transform: translateY(0); /* Move to its original position */
+    /* Responsive */
+    @media (max-width: 992px) {
+        .tabs-wrapper { flex-direction: column; }
+        .tabs-nav { flex: none; flex-direction: row; overflow-x: auto; padding: 20px; }
+        .tab-btn { white-space: nowrap; }
     }
 </style>
-
 <!-- JavaScript to trigger animation when in viewport -->
 <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome for Icons -->
 
 <script>
+function openService(evt, serviceName) {
+    var i, tabpane, tabbtn;
+
+    // 1. Hide all content panes
+    tabpane = document.getElementsByClassName("tab-pane");
+    for (i = 0; i < tabpane.length; i++) {
+        tabpane[i].style.display = "none";
+        tabpane[i].classList.remove("active");
+    }
+
+    // 2. Remove the 'active' class from all buttons
+    tabbtn = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tabbtn.length; i++) {
+        tabbtn[i].classList.remove("active");
+    }
+
+    // 3. Show the specific service content and mark the button as active
+    const selectedContent = document.getElementById(serviceName);
+    if (selectedContent) {
+        selectedContent.style.display = "block";
+        // Small timeout to allow CSS fade-in to trigger
+        setTimeout(() => {
+            selectedContent.classList.add("active");
+        }, 10);
+    }
+    
+    evt.currentTarget.classList.add("active");
+}
+</script>
+<script>
+
     // Create an IntersectionObserver to add a visible class when cards come into view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
