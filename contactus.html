@@ -432,193 +432,197 @@
 </style>
 
 
-<br>
-
-
-        <div class="contact-form">
-    <div class="form-container">
-        <h3 class="form-title">Contact Us</h3>
-        <form action="https://formsubmit.co/msprincesolutions@gmail.com" method="POST">
-            <!-- Name Input -->
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your name">
-            </div>
-
-            <!-- Email Input -->
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-
-            <!-- Message Textarea -->
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required placeholder="Tell us how we can help"></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </div>
-</div>
-
-<style>
-    /* General Contact Form Styling */
-    .contact-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120vh;
-        background: linear-gradient(135deg, #3498db, #8e44ad);
-        padding: 30px;
-    }
-
-    .form-container {
-        background-color: #ffffff;
-        padding: 30px 40px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-        animation: fadeIn 0.6s ease-out;
-    }
-
-    .form-title {
-        font-size: 1.8rem;
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
-
-    /* Input Field Styling */
-    .form-group {
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-        color: #7f8c8d;
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        background-color: #f5f5f5;
-    }
-
-    /* Focus Effect */
-    .form-group input:focus,
-    .form-group textarea:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
-        outline: none;
-    }
-
-    .form-group textarea {
-        min-height: 100px;
-        resize: vertical;
-    }
-
-    /* Submit Button Styling */
-    .submit-btn {
-        background-color: #3498db;
-        color: #ffffff;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .submit-btn:hover {
-        background-color: #2980b9;
-    }
-
-    /* Animation */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Solutions - IT & Security Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Force scroll to top on refresh
+        window.addEventListener("beforeunload", function() { window.scrollTo(0, 0); });
+        document.addEventListener("DOMContentLoaded", function() { window.scrollTo(0, 0); });
+        function reloadAndScroll() { window.location.reload(); window.scrollTo(0, 0); }
+    </script>
+    
+    <style>
+        /* --- General Reset --- */
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth;
+            background-color: #f4f4f4;
+            -webkit-user-select: none; user-select: none;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+        /* --- Header (Static Gradient) --- */
+        header {
+            background: linear-gradient(135deg, #000000, #808080);
+            color: #fff; padding: 20px 40px; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .logo { display: flex; align-items: center; font-size: 28px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .logo img { width: 70px; height: auto; margin-right: 15px; transition: 0.5s ease; }
+        .logo:hover img { transform: rotate(15deg) scale(1.1); }
+
+        nav { display: flex; gap: 30px; }
+        nav a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; padding: 10px; position: relative; transition: 0.3s; }
+        nav a:hover { color: #ff9f00; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; background-color: #ff9f00; transition: width 0.3s ease; bottom: -5px; left: 0; }
+        nav a:hover::after { width: 100%; }
+
+        .menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; }
+
+        /* --- Mobile Nav --- */
+        .nav-popup {
+            position: fixed; top: 0; right: -100%; width: 250px; height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9); display: flex; flex-direction: column;
+            align-items: center; justify-content: center; transition: right 0.3s ease; z-index: 2000;
+        }
+        .nav-popup a { color: #fff; text-decoration: none; font-size: 1.5rem; margin: 20px 0; text-transform: uppercase; }
+
+        /* --- Section 1: Contact Details (White) --- */
+        .contact-details-section {
+            background-color: #ffffff;
+            padding: 80px 6%;
+            text-align: center;
+        }
+        .section-header h2 { font-size: 2.5rem; color: #2f4f91; margin-bottom: 15px; }
+        .section-header p { color: #666; margin-bottom: 50px; }
+
+        .details-grid {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;
+        }
+        .detail-card {
+            background: #f9f9f9; border-radius: 12px; padding: 30px; width: 260px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s;
+            text-decoration: none; color: inherit;
+        }
+        .detail-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .detail-card h3 { font-size: 1.3rem; margin: 15px 0 10px; color: #2f4f91; }
+        .detail-card p { font-size: 1rem; color: #555; margin: 0; }
+        .detail-card img { width: 45px; height: 45px; }
+
+        /* --- Section 2: Premium Form Section (Dark) --- */
+        .premium-form-section {
+            background-color: #0f172a; color: white; padding: 100px 6%;
+            display: flex; flex-direction: column; align-items: center;
+        }
         .form-container {
-            padding: 20px;
+            width: 100%; max-width: 850px;
+            background: rgba(255, 255, 255, 0.02); padding: 50px;
+            border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .form-container h2 { 
+            font-size: 2.8rem; text-align: center; margin-bottom: 40px; font-weight: 700; 
+            background: linear-gradient(to right, #ffffff, #64748b); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
         }
 
-        .form-title {
-            font-size: 1.6rem;
+        .form-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
         }
+        .input-group { position: relative; }
+        .full-width { grid-column: span 2; }
 
-        .form-group input,
-        .form-group textarea {
-            font-size: 0.9rem;
-            padding: 10px;
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%; padding: 15px 0; background: transparent; border: none;
+            border-bottom: 1px solid #334155; color: white; font-size: 1rem; outline: none; transition: 0.3s;
         }
+        .input-group textarea { height: 120px; margin-top: 10px; }
+        .input-group select option { background: #0f172a; color: white; }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-bottom-color: #3b82f6; }
 
         .submit-btn {
-            font-size: 1rem;
-            padding: 10px 25px;
+            width: 100%; padding: 18px; background: #3b82f6; color: white;
+            border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;
         }
-    }
+        .submit-btn:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
 
-    /* Mobile-First */
-    @media (max-width: 480px) {
-        .form-container {
-            padding: 15px;
-            max-width: 90%;
-        }
+        /* --- Footer --- */
+        footer { background: #000; color: #fff; text-align: center; padding: 40px 20px; }
+        footer a { color: #ff9f00; text-decoration: none; margin: 0 10px; }
 
-        .form-title {
-            font-size: 1.4rem;
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            nav { display: none; }
+            .menu-btn { display: block; }
+            header { padding: 15px 25px; }
+            .form-container { padding: 30px; }
         }
+    </style>
+</head>
+    
 
-        .form-group label {
-            font-size: 0.9rem;
-        }
+    <section class="premium-form-section" id="contact">
+        <div class="form-container">
+            <h2>Start Your Project</h2>
+            <form action="https://formsubmit.co/msprincesolutions@gmail.com" method="POST">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_subject" value="New Project Lead - Prince Solutions">
+                
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group">
+                        <select name="service" required>
+                            <option value="" disabled selected>Interested Service</option>
+                            <option value="CCTV">CCTV & Surveillance</option>
+                            <option value="Biometric">Biometric Access Control</option>
+                            <option value="Web-Dev">Web Design & Development</option>
+                            <option value="Other">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="input-group full-width">
+                        <textarea name="message" placeholder="Tell us more about your project requirements..." required></textarea>
+                    </div>
+                </div>
 
-        .form-group input,
-        .form-group textarea {
-            padding: 8px;
-            font-size: 0.9rem;
-        }
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-        .submit-btn {
-            font-size: 0.9rem;
-            padding: 8px 20px;
-        }
-    }
-</style>
+    <footer>
+        <p>&copy; 2026 Prince Solutions. All rights reserved.</p>
+        <p>
+            <a href="https://www.facebook.com/profile.php?id=61564082030508" target="_blank">Facebook</a> | 
+            <a href="#" onclick="reloadAndScroll()">Back to Top</a>
+        </p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navPopup = document.getElementById('nav-popup');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navPopup.style.right = (navPopup.style.right === '0px') ? '-100%' : '0px';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navPopup.contains(e.target) && e.target !== menuToggle) {
+                navPopup.style.right = '-100%';
+            }
+        });
+    </script>
 
 
         </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Prince Solutions. All rights reserved.</p>
-        <p><a href="#home">Back to top</a></p>
-    </footer>
-
+   
 </body>
 </html>
